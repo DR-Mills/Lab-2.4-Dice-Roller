@@ -1,0 +1,24 @@
+/*
+Task: Create an application that simulates dice rolling.
+What will the application do?
+* Ask the user to enter the number of sides for a pair of dice.
+* Prompt the user to roll the dice.
+* “Roll” two n-sided dice, display the results of each, and then ask the user if
+he/she wants to roll the dice again.
+
+Build Specifications
+1. Define a static method named generateRandomDieRoll. It has a parameter that
+specifies the number of sides on a die and returns a random number between 1
+and that number. Call this method for each die that is rolled.
+2. Experiment with different Random number generators–start with the random()
+method of the Math class but also explore Java’s Random class.
+*/
+
+public class DiceRoller {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
