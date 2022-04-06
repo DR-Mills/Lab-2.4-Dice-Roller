@@ -1,0 +1,93 @@
+/*
+Task: Create an application that simulates dice rolling.
+What will the application do?
+* Ask the user to enter the number of sides for a pair of dice.
+* Prompt the user to roll the dice.
+* “Roll” two n-sided dice, display the results of each, and then ask the user if
+he/she wants to roll the dice again.
+
+Build Specifications
+1. Define a static method named generateRandomDieRoll. It has a parameter that
+specifies the number of sides on a die and returns a random number between 1
+and that number. Call this method for each die that is rolled.
+2. Experiment with different Random number generators–start with the random()
+method of the Math class but also explore Java’s Random class.
+*/
+/*
+	ask number of sides per die, store as var
+	if 6 then ask if user wants to play a friendly game of street craps? y/n
+	Instructions, y/n
+		instructions: 
+		This will be a simple game of street dice, not craps. The basic rules are the same, but craps allows you to bet against yourself, 
+		allows others to bet, and allows side bets throughout the game.
+		According to casino.org, it's bad luck to say "seven" at a craps table, but you can refer to them as "jerks", since rolling a seven
+		will lose you the game (unless it's your first roll (the "come-out roll"), which actually wins you the game!
+		Step 1: Bet some money; it's tough to learn without some skin in the game.
+		Step 2: Roll the dice. If it's a 7 or 11, you win right away; if it's a 2, 3, or 12, you lose.
+		Step 3: If you rolled any other number (not 7, 11, 2, 3, or 12) then this number becomes "The Point". You're goal now (since you weren't
+		lucky enough to roll a 7 or 11) is to roll The Point again, before rolling a 7 or 11. If you roll the point again, you win; if you roll a 7 or 11, you lose.
+		Good Luck! Press enter to roll the Come-Out.
+	roll die 1, store value
+	roll die 2, store value
+	display value
+		
+		 
+	take bet
+	
+*/
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class DiceRoller {
+	static Random randomNumGen = new Random();
+
+	public static void main(String[] args) {
+		Scanner scnr = new Scanner(System.in);
+
+		int die1 = 0;
+		int die2 = 0;
+		int dieSides = 0;
+		int diceTotal = 0;
+
+		System.out.println(
+				"Welcome to the Grand Circus Dice Game!\n" + "Enter the number of sides your dice should have: ");
+		dieSides = scnr.nextInt();
+
+/*		if (dieSides == 6) {
+			System.out.println(
+					"6 sides, a standard set of dice then. Care to make it more intersting and play a game of street craps?\n"
+							+ "(y = yes, let's play street craps\n"
+							+ "(n = no, I'm not feeling lucky and just want to roll dice");
+			String wantsToPlayStreetDice = scnr.nextLine();
+
+			if (wantsToPlayStreetDice.equalsIgnoreCase("y")) {
+				playCraps();
+			}
+		}
+*/	
+		System.out.println("Press enter to roll two, " + dieSides + "-sided, dice: ");
+		try{System.in.read();}
+		        catch(Exception e){}
+
+		die1 = generateRandomDieRoll(dieSides);
+		die2 = generateRandomDieRoll(dieSides);
+		diceTotal = die1 + die2;
+
+		System.out.println("Roll Result: ");
+		System.out.println(die1);
+		System.out.println(die2);
+		System.out.println("\nTotal is: " + diceTotal);
+//		System.out.println("Roll again? (y/n) or press x to choose different dice. ");
+
+	}
+
+	static int generateRandomDieRoll(int n) {
+		return randomNumGen.nextInt(n) + 1;
+	}
+
+	private static void playCraps() {
+		System.out.println("This is where the craps game will go");
+	}
+
+}

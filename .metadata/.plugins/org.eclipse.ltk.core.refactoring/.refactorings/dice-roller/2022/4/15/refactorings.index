@@ -1,1 +1,4 @@
 1649254237283	Rename field 'randomNum'
+1649257307327	Extract method 'pressEnterToRoll'
+1649257471770	Extract method 'didUserChoose6'
+1649267901876	Rename field 'diceComboNickname'
