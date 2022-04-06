@@ -25,6 +25,7 @@ import java.util.Scanner;
 public class DiceRoller {
 	
 	static StringBuffer diceComboMsg = new StringBuffer();
+//	static String diceComboMsg.append("";
 	static Random randomNumGen = new Random();
 
 	public static void main(String[] args) {
@@ -33,12 +34,13 @@ public class DiceRoller {
 
 		int die1 = 0;
 		int die2 = 0;
+		int dieSides = 0;
 		int diceTotal = 0;
 		boolean rollAgain = true;
 		String welcomeMsg = "Welcome to the Grand Circus Dice Game!\n" + "Enter the number of sides your dice should have: ";
 		
 		System.out.print(welcomeMsg);
-		int dieSides = scnr.nextInt();
+		dieSides = scnr.nextInt();
 
 		while (rollAgain) {
 
@@ -47,7 +49,7 @@ public class DiceRoller {
 			diceTotal = die1 + die2;
 			whatIsDiceComboNickname(diceTotal);
 
-			System.out.println("\nRoll Result: ");
+			System.out.println("\n\\033[1mRoll Result: \\033[0m");
 			System.out.println(die1);
 			System.out.println(die2);
 			System.out.println("Total is: " + diceTotal + diceComboMsg);
@@ -69,23 +71,23 @@ public class DiceRoller {
 		return randomNumGen.nextInt(n) + 1;
 	}
 
-	// sets the diceComboMsg based on the case value of parameter (int a)
+	// sets the diceComboMsg based on the case value of int a
 	static void whatIsDiceComboNickname(int a) {
 		switch (a) {
 		case 2:
-			diceComboMsg.append(", AKA 'Snake Eyes' (or 'craps' if you were playing craps and it was your first roll).");
+			diceComboMsg.append(", AKA 'Snake Eyes' (or 'craps' if it was your first roll).");
 			break;
 		case 3:
-			diceComboMsg.append(", AKA 'Ace Caught a Deuce' (or 'craps' if you were playing craps and it was your first roll).");
+			diceComboMsg.append(", AKA 'Ace Caught a Deuce' or 'Australian Yo' (or 'craps' if it was your first roll).");
 			break;
 		case 7:
-			diceComboMsg.append(", AKA 'Big Red'.");
+			diceComboMsg.append(", AKA 'Big Red' (and dozens of other nicknames based on the combination of the two dice).");
 			break;
 		case 11:
 			diceComboMsg.append(", AKA 'Six Five no Jive' or simply 'Yo'.");
 			break;
 		case 12:
-			diceComboMsg.append(", AKA 'Box Cars' or 'Midnight' (or 'craps' if you were playing craps and it was your first roll).");
+			diceComboMsg.append(", AKA 'Box Cars' or 'Midnight' (or 'craps' if it was your first roll).");
 			break;
 		}
 	}

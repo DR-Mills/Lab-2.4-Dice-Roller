@@ -69,7 +69,7 @@ public class DiceRoller {
 		return randomNumGen.nextInt(n) + 1;
 	}
 
-	// sets the diceComboMsg based on the case value of parameter (int a)
+	// sets the diceComboMsg based on the case value of int a
 	static void whatIsDiceComboNickname(int a) {
 		switch (a) {
 		case 2:
